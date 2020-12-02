@@ -1,100 +1,392 @@
 <h1 class="visibility-hidden">{{ t 'community'}}</h1>
 
-<section class="section hero community-hero">
-  <h2 class="visibility-hidden">{{ t 'search'}}</h2>
-  <div class="hero-inner">
-    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" focusable="false" viewBox="0 0 12 12" class="search-icon" aria-hidden="true">
-      <circle cx="4.5" cy="4.5" r="4" fill="none" stroke="currentColor"/>
-      <path stroke="currentColor" stroke-linecap="round" d="M11 11L7.5 7.5"/>
-    </svg>
-    {{search submit=false class='search search-full' scoped=settings.scoped_community_search}}
-  </div>
-</section>
+<div class="feature-banner jumbotron jumbotron-fluid kb bg">
+    <div class="container i-container">
+        <div class="effects-box">
+            <div class="illustration" style=""></div>
+            <div class="ovr overlay1"></div>
+            <div class="ovr overlay2"></div>
+            <div class="ovr overlay3"></div>
+            <div class="ovr b"></div>
+        </div>
+        <div class="row pb-5 mt-5 mb-5">
+            <div class="col-md-6 mb-5">
+                <div class="text-box text-white">
+                    <h1 class="white display-3 font-lato font-weight-light mt-5 mb-2">CloudBees Community</h1>
+                    <p class="white lead">Ask questions to fellow users and experts to quickly uplevel your CloudBees skills!</p>
+                     <div class="anonymous welcome teaser">
+                         <a class="btn btn-primary"
+                   href="{{settings.grandcentral_url}}/support/jwt?return_to={{page_path 'topics'}}">Join Today!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="container">
-  <nav class="sub-nav">
-    {{breadcrumbs}}
-  </nav>
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="display-4 pb-1 font-weight-light">Join The Buzz</h2>
+      <p class="lead">Choose the forum that best fits your question and start getting solutions</p>
+    </div>
 
-  <header class="page-header community-header">
-      <span class="dropdown">
-          <button class="dropdown-toggle" aria-haspopup="true">
-            <h2 class="title">
-              {{t 'community_topics'}}
-            </h2>
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" focusable="false" viewBox="0 0 12 12" class="dropdown-chevron-icon">
-              <path fill="none" stroke="currentColor" stroke-linecap="round" d="M3 4.5l2.6 2.6c.2.2.5.2.7 0L9 4.5"/>
-            </svg>
-          </button>
-        <span class="dropdown-menu" role="menu">
-          {{#link 'topics' role='menuitem' selected='true'}}
-            {{t 'show_topics'}}
-          {{/link}}
-          {{#link 'posts' role='menuitem'}}
-            {{t 'show_all_posts'}}
-          {{/link}}
-        </span>
-      </span>
-    <span class="post-to-community">
-      {{link 'new_post' class='button button-large'}}
-    </span>
-  </header>
-
-  {{#unless topics}}
-    <p>{{t 'no_content'}}</p>
-  {{/unless}}
-
-  <div id="main-content" class="blocks topics">
-    <ul class="blocks-list topics-list">
-      {{#each topics}}
-        <li class="blocks-item topics-item {{#if internal}}blocks-item-internal{{/if}}">
-           <a href="{{url}}" class="blocks-item-link">
-             <span class="blocks-item-title">
-               {{name}}
-
-               {{#if internal}}
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" focusable="false" viewBox="0 0 16 16" class="icon-lock" title="{{t 'internal'}}">
-                  <rect width="12" height="9" x="2" y="7" fill="currentColor" rx="1" ry="1"/>
-                  <path fill="none" stroke="currentColor" d="M4.5 7.5V4a3.5 3.5 0 017 0v3.5"/>
-                </svg>
-               {{/if}}
-             </span>
-             <span class="blocks-item-description">{{excerpt description}}</span>
-             <ul class="meta-group">
-               <li class="meta-data">{{t 'post_count' count=post_count}}</li>
-               <li class="meta-data">{{t 'follower_count' count=follower_count}}</li>
-             </ul>
-           </a>
-        </li>
-      {{/each}}
-    </ul>
+    
   </div>
+  <div class="row">
+    <div class="col-md-9">
+      <header class="page-header community-header">
+        <span class="dropdown">
+            <button class="dropdown-toggle" aria-haspopup="true">
+              <h2 class="title">
+                {{t 'community_topics'}}
+              </h2>
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" focusable="false" viewBox="0 0 12 12" class="dropdown-chevron-icon">
+                <path fill="none" stroke="currentColor" stroke-linecap="round" d="M3 4.5l2.6 2.6c.2.2.5.2.7 0L9 4.5"/>
+              </svg>
+            </button>
+          <span class="dropdown-menu" role="menu">
+            {{#link 'topics' role='menuitem' selected='true'}}
+              {{t 'show_topics'}}
+            {{/link}}
+            {{#link 'posts' role='menuitem'}}
+              {{t 'show_all_posts'}}
+            {{/link}}
+          </span>
+        </span>
+        <span class="post-to-community align-right justify-right justify-content-end">
+          {{link 'new_post' class='button button-large'}}
+        </span>
+      </header>
+      <div class="row">
+          {{#each topics}}
+          <div class="col-md-6 pt-4 px-2 community-buckets">
+              <h3>
+                  {{#if internal}}
+                      <span class="visibility-internal" data-title="{{t 'internal'}}">
+                          <span class="visibility-internal-icon"></span>
+                      </span>
+                  {{/if}}
+                  <a href="{{url}}" title="{{name}}">{{name}}</a>
+              </h3>
+              <p>{{excerpt description}}</p>
+              <span class="meta-group">
+                  <span>{{t 'post_count' count=post_count}}</span>
+                  <span>{{t 'follower_count' count=follower_count}}</span>
+              </span>      
+          </div>
+          {{/each}}
+      </div>
+    </div> 
+    <div class="col-md-3">
+        <a class="twitter-timeline" data-height="500" data-dnt="true" data-theme="light" href="https://twitter.com/CloudBees?ref_src=twsrc%5Etfw">See Us On Twitter</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+  </div>
+</div>
 
-  {{pagination}}
+<div class="container my-5">
+  <div class="row text-center">
+    <h3 class="font-weight-light">Not Finding What You Are Looking For?</h3>
+    </div>
+  <div class="row">
+          <span class="post-to-community align-right justify-right justify-content-end">
+        {{link 'new_post' class='button button-large'}}
+      </span>
+  </div>
+</div>
 
-  {{#if featured_posts}}
-    <section class="section community-featured-posts">
-      <h2 class="title">{{t 'featured_posts'}}</h2>
-      <ul class="promoted-articles">
-        {{#each featured_posts}}
-          <li class="promoted-articles-item">
-            <a href="{{url}}">
-              {{title}}
-            </a>
-          </li>
-        {{/each}}
-      </ul>
-    </section>
-  {{/if}}
+ 
 
-  <section class="community-activity activity">
-    {{#if help_center.community_enabled}}
-      {{recent_activity scope='community'}}
-    {{/if}}
-  </section>
+  <div class="conversion-bar text-white inverse-content gradient-bg-orange">
+    <div class="container mw-9">
+        <div class="row justify-content-between align-items-center px-5 px-lg-0 py-6">
+            <div class="col-12 col-md-6 col-lg-5 p-0">
+                <h3 class="display-4 display-md-3 mb-1 mb-lg-3 text-nowrap">Never miss a beat</h3>
+                <p class="mb-5 mb-md-0">Sign up to get notified about the latest product news, community posts, meetups, and more. You can opt out at any time, and we promise not to spam.</p>
+            </div>
+            <div class="col-12 col-md-6 col-lg-6 px-md-3 p-0 pt-md-4">
+                <section class="mw-5 px-4 px-xl-3">
+                    <div class="p-0">
+                        <div class="row">
+                            <div class="col p-0">
+                                <form class="" __bizdiag="0" __biza="W___">
+                                    <fieldset>
+                                        <div class="row">
+                                            <div class="col-12 col-lg-8">
+                                                <div class="form-group mb-3">
+                                                    <label for="email" class="sr-only">Email address</label>
+                                                    <input type="email" id="email" data-mkto-id="Email" class="form-control form-control-lg" required="" placeholder="Enter your email">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-lg-4">
+                                                <button class="btn btn-light btn-lg" type="submit">Sign up</button>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                        <form id="mktoForm_1036" class="d-none mktoForm mktoHasWidth mktoLayoutLeft" __bizdiag="196351684" __biza="W___" novalidate="novalidate" style="font-family: Helvetica, Arial, sans-serif; font-size: 13px; color: rgb(51, 51, 51); width: 101px;">
+                        
+                        <style type="text/css">.mktoForm .mktoButtonWrap.mktoSimple .mktoButton {
+                        color:#fff;
+                        border:1px solid #75ae4c;
+                        padding:0.4em 1em;
+                        font-size:1em;
+                        background-color:#99c47c;
+                        background-image: -webkit-gradient(linear, left top, left bottom, from(#99c47c), to(#75ae4c));
+                        background-image: -webkit-linear-gradient(top, #99c47c, #75ae4c);
+                        background-image: -moz-linear-gradient(top, #99c47c, #75ae4c);
+                        background-image: linear-gradient(to bottom, #99c47c, #75ae4c);
+                        }
+                        .mktoForm .mktoButtonWrap.mktoSimple .mktoButton:hover {
+                        border:1px solid #447f19;
+                        }
+                        .mktoForm .mktoButtonWrap.mktoSimple .mktoButton:focus {
+                        outline:none;
+                        border:1px solid #447f19;
+                        }
+                        .mktoForm .mktoButtonWrap.mktoSimple .mktoButton:active{
+                        background-color:#75ae4c;
+                        background-image: -webkit-gradient(linear, left top, left bottom, from(#75ae4c), to(#99c47c));
+                        background-image: -webkit-linear-gradient(top, #75ae4c, #99c47c);
+                        background-image: -moz-linear-gradient(top, #75ae4c, #99c47c);
+                        background-image: linear-gradient(to bottom, #75ae4c, #99c47c);
+                        }
+                        </style>
 
-  <section class="container community-footer">
-    <h2 class="community-footer-title">{{t 'suggest_new_post'}}</h2>
-    {{link 'new_post' class='button button-large'}}
-  </section>
+
+                        <div class="mktoFormRow">
+                            <div class="mktoFieldDescriptor mktoFormCol" style="margin-bottom: 10px;">
+                                <div class="mktoOffset" style="width: 10px;"></div>
+                                <div class="mktoFieldWrap mktoRequiredField">
+                                    <label for="Email" id="LblEmail" class="mktoLabel mktoHasWidth" style="width: 100px;">
+                                    <div class="mktoAsterix">*</div>
+                                    Email Address:</label>
+                                    <div class="mktoGutter mktoHasWidth" style="width: 10px;"></div>
+                                    <input id="Email" name="Email" maxlength="255" aria-describedby="ValidMsgEmail" aria-labelledby="LblEmail InstructEmail" type="email" class="mktoField mktoEmailField mktoHasWidth mktoRequired" aria-required="true" style="width: 150px;">
+                                    <span id="InstructEmail" tabindex="-1" class="mktoInstruction"></span>
+                                    <div class="mktoClear"></div>
+                                </div>
+                                <div class="mktoClear"></div>
+                            </div>
+                            <div class=">mktoClear"></div>
+                        </div>
+                        <div class="mktoButtonRow">
+                            <span class="mktoButtonWrap mktoSimple" style="margin-left: 120px;">
+                                <button type="submit" class="mktoButton">Submit</button>
+                            </span>
+                        </div>
+                        <input type="hidden" name="formid" class="mktoField mktoFieldDescriptor" value="1036">
+                        <input type="hidden" name="munchkinId" class="mktoField mktoFieldDescriptor" value="333-QPV-725">
+                    </form>
+                </div>
+            <div class="mw-4 border rounded shadow d-none" id="tooltip" style="position: absolute; inset: auto auto 0px 0px; transform: translate3d(1097.5px, 3186.5px, 0px);" data-popper-reference-hidden="false" data-popper-escaped="false" data-popper-placement="top"><strong>Your ad blocker may be blocking functionality on this page. Please disable for an improved experience.</strong>
+                <div id="arrow" style="position: absolute; left: 0px; transform: translate3d(0px, 0px, 0px);">
+
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+</div
+></div>
+<div class="container-fluid bg-white mt-5_5 mt-lg-6 mb-5_5 mb-lg-6"><div class="container"><section class="container-fluid"><div class="row"><div class="col-12 text-center text-lg-left mb-4"><h2 class="display-4">Upcoming Events</h2></div></div><div class="row justify-content-center"><div class="mb-3 col-10 col-sm-6 col-lg-3"><a href="https://carahevents.carahsoft.com/Event/Details/187917-CloudBees" class="card event-card action-depth"><div class="card-body px-3 pt-3"><div class="card-media mb-4_5"><picture><source type="image/webp" media="" srcset="https://images.ctfassets.net/vtn4rfaw6n2j/1iEBG6l9GFsApUz7rYXnjL/24812f0cc4fc24b5de73d3c1fea5d61c/CB_Resized.png?fit=fill&amp;fm=webp&amp;h=205&amp;q=85&amp;w=350,
+      https://images.ctfassets.net/vtn4rfaw6n2j/1iEBG6l9GFsApUz7rYXnjL/24812f0cc4fc24b5de73d3c1fea5d61c/CB_Resized.png?fit=fill&amp;fm=webp&amp;h=410&amp;q=35&amp;w=700 2x,
+      https://images.ctfassets.net/vtn4rfaw6n2j/1iEBG6l9GFsApUz7rYXnjL/24812f0cc4fc24b5de73d3c1fea5d61c/CB_Resized.png?fit=fill&amp;fm=webp&amp;h=615&amp;q=25&amp;w=1050 3x"><source type="image/png" media="" srcset="https://images.ctfassets.net/vtn4rfaw6n2j/1iEBG6l9GFsApUz7rYXnjL/24812f0cc4fc24b5de73d3c1fea5d61c/CB_Resized.png?fit=fill&amp;fm=png&amp;h=205&amp;q=85&amp;w=350,
+      https://images.ctfassets.net/vtn4rfaw6n2j/1iEBG6l9GFsApUz7rYXnjL/24812f0cc4fc24b5de73d3c1fea5d61c/CB_Resized.png?fit=fill&amp;fm=png&amp;h=410&amp;q=35&amp;w=700 2x,
+      https://images.ctfassets.net/vtn4rfaw6n2j/1iEBG6l9GFsApUz7rYXnjL/24812f0cc4fc24b5de73d3c1fea5d61c/CB_Resized.png?fit=fill&amp;fm=png&amp;h=615&amp;q=25&amp;w=1050 3x"><img data-component="ReactContentfulImage" src="https://images.ctfassets.net/vtn4rfaw6n2j/1iEBG6l9GFsApUz7rYXnjL/24812f0cc4fc24b5de73d3c1fea5d61c/CB_Resized.png?fit=fill&amp;fm=png&amp;h=205&amp;q=85&amp;w=350" class="w-100"></picture></div><div class="card-content px-2 pb-5"><h4 class="display-4 mb-2"></h4><h5 class="mb-4">11/18/2020</h5>DevSecOps with CloudBees and Microsoft Azure Government</div></div><div class="cta-container p-4 border-top text-center"><span class="card-link label">Register Now</span></div></a></div><div class="mb-3 col-10 col-sm-6 col-lg-3"><a href="https://register.virtual.awsevents.com/?sc_icampaign=event_reInvent_RegisterNow&amp;sc_ichannel=ha&amp;sc_icontent=eventsite_reinvent20&amp;sc_ioutcome=Strategic_Events&amp;sc_iplace=evhphero&amp;trk=www.google.com" class="card event-card action-depth"><div class="card-body px-3 pt-3"><div class="card-media mb-4_5"><picture><source type="image/webp" media="" srcset="https://images.ctfassets.net/vtn4rfaw6n2j/6uO9CwKITw2FRIanr5SZu/34f228295155d63893e4f91e6671fdee/AWS_Resize.png?fit=fill&amp;fm=webp&amp;h=205&amp;q=85&amp;w=350,
+      https://images.ctfassets.net/vtn4rfaw6n2j/6uO9CwKITw2FRIanr5SZu/34f228295155d63893e4f91e6671fdee/AWS_Resize.png?fit=fill&amp;fm=webp&amp;h=410&amp;q=35&amp;w=700 2x,
+      https://images.ctfassets.net/vtn4rfaw6n2j/6uO9CwKITw2FRIanr5SZu/34f228295155d63893e4f91e6671fdee/AWS_Resize.png?fit=fill&amp;fm=webp&amp;h=615&amp;q=25&amp;w=1050 3x"><source type="image/png" media="" srcset="https://images.ctfassets.net/vtn4rfaw6n2j/6uO9CwKITw2FRIanr5SZu/34f228295155d63893e4f91e6671fdee/AWS_Resize.png?fit=fill&amp;fm=png&amp;h=205&amp;q=85&amp;w=350,
+      https://images.ctfassets.net/vtn4rfaw6n2j/6uO9CwKITw2FRIanr5SZu/34f228295155d63893e4f91e6671fdee/AWS_Resize.png?fit=fill&amp;fm=png&amp;h=410&amp;q=35&amp;w=700 2x,
+      https://images.ctfassets.net/vtn4rfaw6n2j/6uO9CwKITw2FRIanr5SZu/34f228295155d63893e4f91e6671fdee/AWS_Resize.png?fit=fill&amp;fm=png&amp;h=615&amp;q=25&amp;w=1050 3x"><img data-component="ReactContentfulImage" src="https://images.ctfassets.net/vtn4rfaw6n2j/6uO9CwKITw2FRIanr5SZu/34f228295155d63893e4f91e6671fdee/AWS_Resize.png?fit=fill&amp;fm=png&amp;h=205&amp;q=85&amp;w=350" class="w-100"></picture></div><div class="card-content px-2 pb-5"><h4 class="display-4 mb-2"></h4><h5 class="mb-4">11/30/2020</h5>AWS re:Invent</div></div><div class="cta-container p-4 border-top text-center"><span class="card-link label">Register Now</span></div></a></div><div class="mb-3 col-10 col-sm-6 col-lg-3"><a href="https://learn.spkaa.com/cloudbees/" class="card event-card action-depth"><div class="card-body px-3 pt-3"><div class="card-media mb-4_5"><picture><source type="image/webp" media="" srcset="https://images.ctfassets.net/vtn4rfaw6n2j/2xf3K5bFsAkHHi7mQjOLx1/bea02082881f2264066c8326f89ec5f3/2020-CloudBees-medium-338x200.png?fit=fill&amp;fm=webp&amp;h=205&amp;q=85&amp;w=350,
+      https://images.ctfassets.net/vtn4rfaw6n2j/2xf3K5bFsAkHHi7mQjOLx1/bea02082881f2264066c8326f89ec5f3/2020-CloudBees-medium-338x200.png?fit=fill&amp;fm=webp&amp;h=410&amp;q=35&amp;w=700 2x,
+      https://images.ctfassets.net/vtn4rfaw6n2j/2xf3K5bFsAkHHi7mQjOLx1/bea02082881f2264066c8326f89ec5f3/2020-CloudBees-medium-338x200.png?fit=fill&amp;fm=webp&amp;h=615&amp;q=25&amp;w=1050 3x"><source type="image/png" media="" srcset="https://images.ctfassets.net/vtn4rfaw6n2j/2xf3K5bFsAkHHi7mQjOLx1/bea02082881f2264066c8326f89ec5f3/2020-CloudBees-medium-338x200.png?fit=fill&amp;fm=png&amp;h=205&amp;q=85&amp;w=350,
+      https://images.ctfassets.net/vtn4rfaw6n2j/2xf3K5bFsAkHHi7mQjOLx1/bea02082881f2264066c8326f89ec5f3/2020-CloudBees-medium-338x200.png?fit=fill&amp;fm=png&amp;h=410&amp;q=35&amp;w=700 2x,
+      https://images.ctfassets.net/vtn4rfaw6n2j/2xf3K5bFsAkHHi7mQjOLx1/bea02082881f2264066c8326f89ec5f3/2020-CloudBees-medium-338x200.png?fit=fill&amp;fm=png&amp;h=615&amp;q=25&amp;w=1050 3x"><img data-component="ReactContentfulImage" src="https://images.ctfassets.net/vtn4rfaw6n2j/2xf3K5bFsAkHHi7mQjOLx1/bea02082881f2264066c8326f89ec5f3/2020-CloudBees-medium-338x200.png?fit=fill&amp;fm=png&amp;h=205&amp;q=85&amp;w=350" class="w-100"></picture></div><div class="card-content px-2 pb-5"><h4 class="display-4 mb-2"></h4><h5 class="mb-4">12/1/2020</h5>Increase the Velocity, Efficiency and Quality of Your Software Delivery</div></div><div class="cta-container p-4 border-top text-center"><span class="card-link label">Register Now</span></div></a></div><div class="mb-3 col-10 col-sm-6 col-lg-3"><a href="/resources/webinar/cloudbees-software-delivery-management" class="card event-card action-depth"><div class="card-body px-3 pt-3"><div class="card-media mb-4_5"><picture><source type="image/webp" media="" srcset="https://images.ctfassets.net/vtn4rfaw6n2j/ypEA0H56XGbkoQe4Lr28B/9604814a597df8382ecd9031bf88438c/SDM_Resize.png?fit=fill&amp;fm=webp&amp;h=205&amp;q=85&amp;w=350,
+      https://images.ctfassets.net/vtn4rfaw6n2j/ypEA0H56XGbkoQe4Lr28B/9604814a597df8382ecd9031bf88438c/SDM_Resize.png?fit=fill&amp;fm=webp&amp;h=410&amp;q=35&amp;w=700 2x,
+      https://images.ctfassets.net/vtn4rfaw6n2j/ypEA0H56XGbkoQe4Lr28B/9604814a597df8382ecd9031bf88438c/SDM_Resize.png?fit=fill&amp;fm=webp&amp;h=615&amp;q=25&amp;w=1050 3x"><source type="image/png" media="" srcset="https://images.ctfassets.net/vtn4rfaw6n2j/ypEA0H56XGbkoQe4Lr28B/9604814a597df8382ecd9031bf88438c/SDM_Resize.png?fit=fill&amp;fm=png&amp;h=205&amp;q=85&amp;w=350,
+      https://images.ctfassets.net/vtn4rfaw6n2j/ypEA0H56XGbkoQe4Lr28B/9604814a597df8382ecd9031bf88438c/SDM_Resize.png?fit=fill&amp;fm=png&amp;h=410&amp;q=35&amp;w=700 2x,
+      https://images.ctfassets.net/vtn4rfaw6n2j/ypEA0H56XGbkoQe4Lr28B/9604814a597df8382ecd9031bf88438c/SDM_Resize.png?fit=fill&amp;fm=png&amp;h=615&amp;q=25&amp;w=1050 3x"><img data-component="ReactContentfulImage" src="https://images.ctfassets.net/vtn4rfaw6n2j/ypEA0H56XGbkoQe4Lr28B/9604814a597df8382ecd9031bf88438c/SDM_Resize.png?fit=fill&amp;fm=png&amp;h=205&amp;q=85&amp;w=350" class="w-100"></picture></div><div class="card-content px-2 pb-5"><h4 class="display-4 mb-2"></h4><h5 class="mb-4">12/10/2020</h5>“Optimize Engineering Team Efficiency with CloudBees Software Delivery Management”</div></div><div class="cta-container p-4 border-top text-center"><span class="card-link label">Register Now</span></div></a></div></div><br></section></div></div>
+<section class="container">
+    <div class="row mt-5 mb-4">
+        <div class="col-md-12"><h2 class="display-4 font-weight-light mt-5 mb-4">Other ways to learn</h2></div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 my-3">
+            <div class="">
+                 <div class="card align-items-stretch">
+                    <div class="card-img-top plugin-management-guide ">
+                        <div class="card-graphic-container"><span class="material-icons">assignment</span></div>
+                    </div>
+                    <div class="card-body d-flex flex-column px-4">
+                       <h4 class="card-title text-left">
+                            Product Documentation
+                        </h4>
+                        <p class="card-text flex-grow-1 text-left font-weight-light">
+                           Get descriptive, step-by-step documentation for all CloudBees products.
+                        </p>
+                        <a href="https://docs.cloudbees.com/" class="card-cta pt-3 pb-2">
+                                See all documentation
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<div class="col-md-3 my-3">
+            <div class="">
+                 <div class="card align-items-stretch">
+                    <div class="card-img-top plugin-management-guide">
+                        <div class="card-graphic-container"><span class="material-icons">
+emoji_people
+</span></div>
+                    </div>
+                    <div class="card-body d-flex flex-column px-4">
+                        <h4 class="card-title text-left ">
+                            Q&A Forum
+                        </h4>
+                        <p class="card-text flex-grow-1 text-left font-weight-light">
+                           Get all the solutions to your questions - answered by fellow users and experts.
+                        </p>
+                       
+                            <a href="/hc/en-us/community/topics" class="card-cta pt-3 pb-2">
+                                Get asking
+                            </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>-->
+        <div class="col-md-3 my-3">
+            <div class="">
+                 <div class="card align-items-stretch">
+                    <div class="card-img-top plugin-management-guide">
+                        <div class="card-graphic-container"><span class="material-icons">
+ballot
+</span></div>
+                    </div>
+                    <div class="card-body d-flex flex-column px-4">
+                         <h4 class="card-title text-left ">
+                            Technical Tutorials
+                        </h4>
+                        <p class="card-text flex-grow-1 text-left font-weight-light">
+                           Deep-dive, use case driven tutorials about popular products and practices.
+                        </p>
+                        
+                            <a href="/" class="card-cta pt-3 pb-2">
+                                Read tutorials
+                            </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 my-3">
+            <div class="">
+                 <div class="card align-items-stretch">
+                    <div class="card-img-top plugin-management-guide ">
+                        <div class="card-graphic-container"><span class="material-icons">
+school
+</span></div>
+                    </div>
+                    <div class="card-body d-flex flex-column px-4">
+                        <h4 class="card-title text-left ">
+                            Training
+                        </h4>
+                        <p class="card-text flex-grow-1 text-left font-weight-light">
+                           Get hands on, guided training from CloudBees Experts in guided sessions.
+                        </p>
+                       
+                            <a href="https://premium.cbu.cloudbees.com/" class="card-cta pt-3 pb-2">
+                                See trainings
+                            </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 my-3">
+            <div class="">
+                 <div class="card align-items-stretch">
+                    <div class="card-img-top plugin-management-guide ">
+                        <div class="card-graphic-container"><span class="material-icons">
+room_service
+</span></div>
+                    </div>
+                    <div class="card-body d-flex flex-column px-4">
+                        <h4 class="card-title text-left">
+                            Professional Services
+                        </h4>
+                        <p class="card-text flex-grow-1 text-left font-weight-light">
+                           Need help implementing CloudBees products across your organization?
+                        </p>
+                        
+                            <a href="https://www.cloudbees.com/services" class="card-cta pt-3 pb-2">
+                                Schedule a request
+                            </a>
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 my-3">
+            <div class="">
+                 <div class="card align-items-stretch">
+                    <div class="card-img-top plugin-management-guide ">
+                        <div class="card-graphic-container"><span class="material-icons">
+how_to_reg
+</span></div>
+                    </div>
+                    <div class="card-body d-flex flex-column px-4">
+                        <h4 class="card-title text-left ">
+                            Certifications
+                        </h4>
+                        <p class="card-text flex-grow-1 text-left font-weight-light">
+                           Get certified in Jenkins or CloudBees products from the experts themselves.
+                        </p>
+                        
+                            <a href="https://www.cloudbees.com/jenkins/certification" class="card-cta pt-3 pb-2">
+                                Get certified
+                            </a>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 my-3">
+            <div class="">
+                 <div class="card align-items-stretch">
+                    <div class="card-img-top plugin-management-guide ">
+                        <div class="card-graphic-container"><span class="material-icons">
+network_check
+</span></div>
+                    </div>
+                    <div class="card-body d-flex flex-column px-4">
+                        <h4 class="card-title text-left">
+                            System Status
+                        </h4>
+                        <p class="card-text flex-grow-1 text-left font-weight-light">
+                           Check up on the status of CloudBees products, APIs, and other services.
+                        </p>
+                        
+                            <a href="https://cloudbeesstatus.com" class="card-cta pt-3 pb-2">
+                                See status
+                            </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5 ">
+        <div class="row justify-content-center text-center mt-5 mb-2">
+            <h3 class="display-4 font-weight-light mt-4">Still Having Problems?</h3>
+        </div>
+        <div class="row justify-content-center px-5 mx-5 my-3 text-center">
+            <div class="col mb-5">
+                <a href="" class="btn btn-primary">Submit A Ticket</a>
+            </div>
+        </div>
+    </div>
 </div>

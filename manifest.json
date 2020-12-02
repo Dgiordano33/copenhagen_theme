@@ -1,7 +1,7 @@
 {
-  "name": "Copenhagen",
-  "author": "Zendesk",
-  "version": "2.7.0",
+  "name": "Copenhagen-DG",
+  "author": "Zendesk and Dan",
+  "version": "3.1",
   "api_version": 2,
   "default_locale": "en-us",
   "settings": [
@@ -13,7 +13,7 @@
           "type": "color",
           "description": "brand_color_description",
           "label": "brand_color_label",
-          "value": "#0072EF"
+          "value": "#289ce1"
         },
         {
           "identifier": "brand_text_color",
@@ -34,7 +34,7 @@
           "type": "color",
           "description": "link_color_description",
           "label": "link_color_label",
-          "value": "#1F73B7"
+          "value": "#289ce1"
         },
         {
           "identifier": "background_color",
@@ -370,6 +370,337 @@
           "value": true
         }
       ]
+    },
+    {
+      "label": "cloudbees_settings",
+      "variables": [
+        {
+          "identifier": "support_hc_url",
+          "type": "list",
+          "label": "support_hc_url_label",
+          "description": "support_hc_url_description",
+          "value": "https://cloudbees1557872254.zendesk.com/hc/en-us",
+          "options": [
+            {
+              "label": "Support Help Center (Production)",
+              "value": "https://support.cloudbees.com/hc/en-us"
+            },
+            {
+              "label": "Support Help Center (Staging)",
+              "value": "https://cloudbees1557872254.zendesk.com/hc/en-us"
+            }
+          ]
+        },
+        {
+          "identifier": "grandcentral_url",
+          "type": "list",
+          "label": "grandcentral_url_label",
+          "description": "grandcentral_url_description",
+          "value": "https://grandcentral.beescloud.com",
+          "options": [
+            {
+              "label": "GrandCentral (Production)",
+              "value": "https://grandcentral.cloudbees.com"
+            },
+            {
+              "label": "GrandCentral (Staging)",
+              "value": "https://grandcentral.beescloud.com"
+            }
+          ]
+        },
+        {
+          "identifier": "console_url",
+          "type": "list",
+          "label": "console_url_label",
+          "description": "console_url_description",
+          "value": "https://console.beescloud.com",
+          "options": [
+            {
+              "label": "Console (Production)",
+              "value": "https://console.cloudbees.com"
+            },
+            {
+              "label": "Console (Staging)",
+              "value": "https://console.beescloud.com"
+            }
+          ]
+        },
+        {
+          "identifier": "documentation_url",
+          "type": "list",
+          "label": "documentation_url_label",
+          "description": "documentation_url_description",
+          "value": "https://docs.beescloud.com",
+          "options": [
+            {
+              "label": "Documentation (Production)",
+              "value": "https://docs.cloudbees.com"
+            },
+            {
+              "label": "Documentation (Staging)",
+              "value": "https://docs.beescloud.com"
+            }
+          ]
+        },
+        {
+          "identifier": "segment_key",
+          "type": "text",
+          "label": "segment_key_label",
+          "description": "segment_key_description",
+          "value": "MXwXnnuX5VbPGJIRl3GbIN8jGGhDELUA"
+        },
+        {
+          "identifier": "default_ticket_form_id",
+          "type": "text",
+          "label": "default_ticket_form_id_label",
+          "description": "default_ticket_form_id_description",
+          "value": "360001079792"
+        },
+        {
+          "identifier": "flow_acc_ticket_form_id",
+          "type": "text",
+          "label": "flow_acc_ticket_form_id_label",
+          "description": "flow_acc_ticket_form_id_description",
+          "value": "360001079792"
+        },
+        {
+          "identifier": "jenius_ticket_form_id",
+          "type": "text",
+          "label": "jenius_ticket_form_id_label",
+          "description": "jenius_ticket_form_id_description",
+          "value": "360000471572"
+        },
+        {
+          "identifier": "product_ticket_field_id",
+          "type": "text",
+          "label": "product_ticket_field_id_label",
+          "description": "product_ticket_field_id_description",
+          "value": "360027593932"
+        },
+        {
+          "identifier": "severity_ticket_field_id",
+          "type": "text",
+          "label": "severity_ticket_field_id_label",
+          "description": "severity_ticket_field_id_description",
+          "value": "360034101192"
+        },
+        {
+          "identifier": "general_faq_path",
+          "type": "text",
+          "label": "general_faq_path_label",
+          "description": "general_faq_path_description",
+          "value": "/sections/360004704452"
+        },
+        {
+          "identifier": "prd_cb_accelerator_category_id",
+          "type": "text",
+          "label": "prd_cb_accelerator_category_id_label",
+          "description": "prd_cb_accelerator_category_id_description",
+          "value": "360002002572"
+        },
+        {
+          "identifier": "prd_cb_accelerator_ann_path",
+          "type": "text",
+          "label": "prd_cb_accelerator_ann_path_label",
+          "description": "prd_cb_accelerator_ann_path_description",
+          "value": "/sections/360006098531"
+        },
+        {
+          "identifier": "prd_cb_accelerator_gs_path",
+          "type": "text",
+          "label": "prd_cb_accelerator_gs_path_label",
+          "description": "prd_cb_accelerator_gs_path_description",
+          "value": "/sections/360006098371"
+        },
+        {
+          "identifier": "prd_cb_accelerator_kb_path",
+          "type": "text",
+          "label": "prd_cb_accelerator_kb_path_label",
+          "description": "prd_cb_accelerator_kb_path_description",
+          "value": "/sections/360006098471"
+        },
+        {
+          "identifier": "prd_cb_accelerator_video_path",
+          "type": "text",
+          "label": "prd_cb_accelerator_video_path_label",
+          "description": "prd_cb_accelerator_video_path_description",
+          "value": "/articles/360032507692"
+        },
+        {
+          "identifier": "prd_cb_codeship_category_id",
+          "type": "text",
+          "label": "prd_cb_codeship_category_id_label",
+          "description": "prd_cb_codeship_category_id_description",
+          "value": ""
+        },
+        {
+          "identifier": "prd_cb_codeship_kb_path",
+          "type": "text",
+          "label": "prd_cb_codeship_kb_path_label",
+          "description": "prd_cb_codeship_kb_path_description",
+          "value": "/sections/360006433812"
+        },
+        {
+          "identifier": "prd_cb_codeship_kb_site_link",
+          "type": "text",
+          "label": "prd_cb_codeship_kb_site_link_label",
+          "description": "prd_cb_codeship_kb_site_link_description",
+          "value": "https://helpdesk.codeship.com"
+        },
+        {
+          "identifier": "prd_cb_codeship_community_link",
+          "type": "text",
+          "label": "prd_cb_codeship_community_link_label",
+          "description": "prd_cb_codeship_community_link_description",
+          "value": "https://blog.codeship.com/"
+        },
+        {
+          "identifier": "prd_cb_core_category_id",
+          "type": "text",
+          "label": "prd_cb_core_category_id_label",
+          "description": "prd_cb_core_category_id_description",
+          "value": "360002017932"
+        },
+        {
+          "identifier": "prd_cb_core_kb_path",
+          "type": "text",
+          "label": "prd_cb_core_kb_path_label",
+          "description": "prd_cb_core_kb_path_description",
+          "value": "/categories/360001996492"
+        },
+        {
+          "identifier": "prd_cb_devoptics_category_id",
+          "type": "text",
+          "label": "prd_cb_devoptics_category_id_label",
+          "description": "prd_cb_devoptics_category_id_description",
+          "value": "360002022271"
+        },
+        {
+          "identifier": "prd_cb_devoptics_kb_path",
+          "type": "text",
+          "label": "prd_cb_devoptics_kb_path_label",
+          "description": "prd_cb_devoptics_kb_path_description",
+          "value": "/sections/360006513171"
+        },
+        {
+          "identifier": "prd_cb_flow_category_id",
+          "type": "text",
+          "label": "prd_cb_flow_category_id_label",
+          "description": "prd_cb_flow_category_id_description",
+          "value": "360002002592"
+        },
+        {
+          "identifier": "prd_cb_flow_ann_path",
+          "type": "text",
+          "label": "prd_cb_flow_ann_path_label",
+          "description": "prd_cb_flow_ann_path_description",
+          "value": "/sections/360006098391"
+        },
+        {
+          "identifier": "prd_cb_flow_gs_path",
+          "type": "text",
+          "label": "prd_cb_flow_gs_path_label",
+          "description": "prd_cb_flow_gs_path_description",
+          "value": "/sections/360006098491"
+        },
+        {
+          "identifier": "prd_cb_flow_kb_path",
+          "type": "text",
+          "label": "prd_cb_flow_kb_path_label",
+          "description": "prd_cb_flow_kb_path_description",
+          "value": "/sections/360006031632"
+        },
+        {
+          "identifier": "prd_cb_flow_video_path",
+          "type": "text",
+          "label": "prd_cb_flow_video_path_label",
+          "description": "prd_cb_flow_video_path_description",
+          "value": "/articles/360032507532"
+        },
+        {
+          "identifier": "prd_cb_cje_category_id",
+          "type": "text",
+          "label": "prd_cb_cje_category_id_label",
+          "description": "prd_cb_cje_category_id_description",
+          "value": "360002019871"
+        },
+        {
+          "identifier": "prd_cb_cje_kb_path",
+          "type": "text",
+          "label": "prd_cb_cje_kb_path_label",
+          "description": "prd_cb_cje_kb_path_description",
+          "value": "/categories/360001996492"
+        },
+        {
+          "identifier": "prd_cb_cjp_category_id",
+          "type": "text",
+          "label": "prd_cb_cjp_category_id_label",
+          "description": "prd_cb_cjp_category_id_description",
+          "value": "360002019112"
+        },
+        {
+          "identifier": "prd_cb_cjp_kb_path",
+          "type": "text",
+          "label": "prd_cb_cjp_kb_path_label",
+          "description": "prd_cb_cjp_kb_path_description",
+          "value": "/categories/360001996492"
+        },
+        {
+          "identifier": "prd_cb_rollout_category_id",
+          "type": "text",
+          "label": "prd_cb_rollout_category_id_label",
+          "description": "prd_cb_rollout_category_id_description",
+          "value": "360002014812"
+        },
+        {
+          "identifier": "prd_cb_rollout_kb_path",
+          "type": "text",
+          "label": "prd_cb_rollout_kb_path_label",
+          "description": "prd_cb_rollout_kb_path_description",
+          "value": ""
+        },
+        {
+          "identifier": "prd_cb_rollout_kb_site_link",
+          "type": "text",
+          "label": "prd_cb_rollout_kb_site_link_label",
+          "description": "prd_cb_rollout_kb_site_link_description",
+          "value": ""
+        },
+        {
+          "identifier": "prd_cb_rollout_community_site",
+          "type": "text",
+          "label": "prd_cb_rollout_community_site_label",
+          "description": "prd_cb_rollout_community_site_description",
+          "value": ""
+        },
+        {
+          "identifier": "sup_cb_jenkins_category_id",
+          "type": "text",
+          "label": "sup_cb_jenkins_category_id_label",
+          "description": "sup_cb_jenkins_category_id_description",
+          "value": "360002014832"
+        },
+        {
+          "identifier": "sup_cb_jenkins_kb_path",
+          "type": "text",
+          "label": "sup_cb_jenkins_kb_path_label",
+          "description": "sup_cb_jenkins_kb_path_description",
+          "value": "/categories/360001996492"
+        },
+        {
+          "identifier": "prd_cb_ee_category_id",
+          "type": "text",
+          "label": "prd_cb_ee_category_id_label",
+          "description": "prd_cb_ee_category_id_description",
+          "value": "360004681491"
+        },
+        {
+          "identifier": "prd_cb_ee_kb_path",
+          "type": "text",
+          "label": "prd_cb_ee_kb_path_label",
+          "description": "prd_cb_ee_kb_path_description",
+          "value": "/sections/360011071692"
+        }]
     }
   ]
 }

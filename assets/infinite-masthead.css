@@ -1,0 +1,150 @@
+.logo-container > a {
+    display: block;
+    background: url(/images/cloudbees-logo.png);
+    background-size: 100%;
+    height: 58px;
+    width: 211px;
+}
+.logo-container > a > img {
+    display:none;
+}
+.utility-container {
+    float: right;
+    width: 100%;
+    padding-top: 5px;
+}
+
+.utility-container ul li {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.utility-container .utility-links {
+    float: right;
+    font-size: 16px;
+}
+.utility-container .utility-links > ul {margin:0}
+.utility-container .utility-links a {
+    color: #646464;
+    text-decoration: none;
+    vertical-align: baseline;
+}
+
+.utility-container .utility-links a:hover {
+    text-decoration: underline;
+    color: #646464;
+}
+
+.utility-container .utility-links a:visited, .utility-container .utility-links a:active
+{
+    text-decoration: none;
+    color: #646464;
+}
+
+.utility-container .utility-links a.btn, .utility-container .utility-links a.btn:hover
+{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.utility-container .utility-links li {
+    margin-right: 20px;
+}
+
+
+#content .download-page .cje {border-bottom:3px solid #f90; padding-bottom:2rem}
+#content .download-page .cjd {border-bottom:3px solid #f90; padding-bottom:2rem}
+
+body #download-menu > button {float:none;}
+#download-menu {position:relative; top:-.25rem}
+#download-menu>.dropdown-menu {
+    left: auto;
+    right: -.25rem;
+    width: 62rem;
+    padding: 1rem 2rem;
+    font-size: .75rem;
+    line-height: normal;
+}
+#download-menu>.btn.dropdown-toggle {
+    margin-left: -.25rem;
+    padding-right: .5rem;
+    z-index: 3;
+    box-shadow:none;
+}
+#download-menu.open>.btn.dropdown-toggle,
+#download-menu>.btn.dropdown-toggle:active {background:#356}
+#download-menu>.dropdown-menu .rolling-r {border-right:1px solid #ccc; padding:1rem 3rem 1rem 1rem}
+#download-menu>.dropdown-menu .fixed-r{padding:1rem 1rem 1rem 3rem}
+#download-menu>.dropdown-menu .row > div > i {font-size:2.5rem; color:#ccc; display:block; position:absolute; line-height:4rem !important; width:4rem; margin:-.25rem; border-radius:50%; border:1px solid}
+#download-menu>.dropdown-menu .row > .dl > i,
+#download-menu>.dropdown-menu .row > div:hover > i {background:#356; color:#fff; border-color:#0cd}
+#download-menu>.dropdown-menu .row > .dl > h3,
+#download-menu>.dropdown-menu .row > div:hover > h3 {color:#000}
+#download-menu>.dropdown-menu .row > .dl > .description
+#download-menu>.dropdown-menu p {
+    margin: .25rem 0;
+}
+#download-menu>.dropdown-menu .row > div:hover > .description {color:#444}
+#download-menu>.dropdown-menu .row > .fade-half {opacity:.5}
+#download-menu>.dropdown-menu .dropdown-menu {right:0}
+#download-menu>.dropdown-menu p.details {padding-bottom:1rem}
+#download-menu>.dropdown-menu .btn-group {display:flex; clear:both; float:none;}
+#download-menu>.dropdown-menu .btn-group > a{font-size:.9rem; font-weight:400; width:100%}
+#download-menu>.dropdown-menu .v{ display:block; font-size:.67rem}
+#download-menu>.dropdown-menu h3,
+#download-menu>.dropdown-menu .description { text-align:left; padding-left:4.5rem; }
+#download-menu>.dropdown-menu .description {font-size:.9rem;min-height:3.6rem; line-height:1.2rem; margin:.2rem 0 .5rem;color:#999 }
+#download-menu>.dropdown-menu h3 {font-size:1.5rem; margin:0; color:#666;}
+#download-menu>.dropdown-menu h5.sub{
+    text-align: left;
+    padding-left: 4.5rem;
+    font-size:1.1rem;
+    color:#999
+}
+#download-menu>.dropdown-menu .row.spacer {
+    margin-top:3rem
+}
+#download-menu>.dropdown-menu * {
+    line-height: normal !important;
+}
+#download-menu>.dropdown-menu p {
+    margin: .25rem 0;
+}
+.view-box.slide {width:100%; position:relative; left:-4px; }
+.view-box.slide > .row {display:flex; width:100%; position:relative; margin-left:4px;left:0;}
+.view-box.slide.show-fixed > .row{width:100%}
+.view-box.slide > .row #get-rolling-releases {cursor:pointer;}
+.view-box.slide > .row > .text-toggle p {padding-bottom:1rem; opacity:#666;}
+.view-box.slide > .row > .text-toggle a {color:#357 !important}
+.view-box.slide #fixed-options,
+.view-box.slide.show-fixed #get-fixed-releases{display:none;}
+.view-box.slide.show-fixed #fixed-options,
+.view-box.slide #get-fixed-releases{display:block;}
+
+
+#rolling-options:after {
+    content: 'OR';
+    display: block;
+    position: absolute;
+    margin-top: 30%;
+    background: #fff;
+    right: -1.25rem;
+    top: 0;
+    padding: .5rem;
+    font-size: 1.1rem;
+    color:#999
+}
+
+/* When we .show() the download, ensure that it renders inline, otherwise
+ * jQuery marks it with `display: list-item` which adds the bullet list marker
+ */
+body.authentic #top-download {
+    display: inline-block;
+}
+/* .authentic#top-login used for toggling the Login button out when the user
+ * has alerady logged in
+ */
+body.authentic .logged-out-only,
+.logged-in-only, #top-download {
+    display: none;
+}

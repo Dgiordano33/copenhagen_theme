@@ -1,0 +1,89 @@
+
+a.nav-link {cursor:pointer}
+.logo-container > a > img {height:0; width:0; opacity:0}
+/* conflicting styles */
+body .not-fixed > .fixed {position:relative}
+body .not-fixed #search-main-content {padding-top:0}
+
+footer,
+.darkblue
+{background:#344f61}
+
+body #ji-toolbar {
+    background:#344f61;
+    border-bottom: .2rem solid white;
+}
+body #doc-toolbar {background:#289ce1}
+body .navbar-blue .navbar-nav .nav-link {color:rgba(255,255,255,.75)}
+body .navbar-blue .navbar-nav .nav-link:hover {color:rgba(255,255,255,.9)}
+body .navbar-blue .navbar-nav .nav-link:active,
+body .navbar-blue .navbar-nav .active .nav-link{color:#fff}
+body #ji-toolbar .active:after {border-bottom-color:white !important}
+
+body .navbar-brand>.cb {color:white}
+body .fixed.top {top:initial; position:relative;}
+body .ji-toolbar-offset {display:none}
+
+body .featurebanner .preview-only {height:0; width:0; position:fix; left:-99em; top:-99rem; opacity:0}
+body .featurebanner > .container {color:rgba(255,255,255,.85); text-shadow:0 1px 2px rgba(0,0,0,.5)}
+body .featurebanner > .container h2 {color:#fff}
+body .featurebanner > .container > .effects-box > .illustration {background-size:100%; background-repeat:no-repeat; background-position:center;}
+body .featurebanner .col {position:relative; z-index:3}
+body .featurebanner .ovr {position:absolute; top:0; bottom:0; left:0; right:0;}
+body .effects-box {top:0; bottom:0; right:0; left:0; position:absolute; overflow:hidden;}
+body .ovr.overlay1{background:rgba(0,120,145, .85);right:50%;box-shadow:rgba(0,120,145, .85) 5rem 0 5rem 5rem}
+body .ovr.overlay2{background:rgba(0,120,145, .85);right:33.3%;mix-blend-mode: darken;}
+body .ovr.overlay3{background: rgba(225,150,00, .85);
+    mix-blend-mode: multiply;
+    left:80%;
+}
+body .jet .illustration {left:33%; background-size:initial !important;}
+body .jet .ovr.overlay1{ right:60%}
+body .jet .ovr.overlay2{right:40%; mix-blend-mode:normal}
+body .jet .ovr.overlay3{left: 85%; box-shadow:-6rem 0 rgba(225,150,00,.85); background: rgba(225,15,00,.85);}
+body .jet .ovr.b {background:url(/images/cb-cb-solid.png) right; width:15%;}
+body .jet .ovr.b:after {content:' '}
+body .jumbotron.blue {background:#0097b4}
+body .jumbotron.blue.step-by-step .illustration{mix-blend-mode:screen;}
+body .ovr.b:after {content: '\e916';
+    font-family: 'ji';
+    font-size: 40rem;
+    color: rgba(0,151,181,.75);
+    position: absolute;
+    display: block;
+    bottom: -5rem;
+    left: 5rem;
+    line-height: 1em;
+    mix-blend-mode:screen}
+
+
+.logo>.icn-box, .step-by-step>.step .card-title {background:#344f61; border-color:#0cd}
+body .jumbotron {background:#ddd;  box-shadow: inset 0 5px 10px rgba(0,0,0,.15);}
+body .jumbotron.step-by-step .illustration{
+    background: url(/images/cb-cb-solid.png) repeat -10px -10px fixed;
+    -webkit-filter: grayscale(1);-moz-filter: grayscale(1);-ms-filter: grayscale(1);
+    opacity: .1;
+    mix-blend-mode:multiply;
+}
+
+
+
+/* specific feature banners */
+.feature-banner.pipeline .text-box {background:none;}
+.feature-banner.pipeline .ovr.overlay1,
+.feature-banner.pipeline .ovr.overlay2{opacity:.5}
+.jumbotron.book-box .effects-box,
+.feature-banner > .people-box  .effects-box,
+.feature-banner .effects-box > .ovr {display:none}
+.feature-banner.home .effects-box > .ovr,
+.feature-banner.pipeline .effects-box > .ovr,
+.feature-banner.training .effects-box > .ovr {display:block}
+body .feature-banner.orange {background:#e93}
+body .feature-banner.orange .btn-primary {background:#900}
+body .feature-banner.orange .btn-primary:hover {background:#194765}
+
+.jumbotron.book-box > .container > .row{margin-top:-1.5rem}
+body .featurebanner > .people-box.container,
+body .featurebanner > .people-box.container .text-box > h2  {color:#666; text-shadow:none;}
+body .featurebanner > .people-box.container .text-box > h2 {color:#333}
+.jumbotron.book-box .ovr.b {display:none}

@@ -12,7 +12,7 @@
   </nav>
 
   <header class="page-header">
-    <h1>
+    <h1 class="display-3">
       {{topic.name}}
       {{#if topic.internal}}
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" focusable="false" viewBox="0 0 16 16" class="icon-lock" title="{{t 'internal'}}">
@@ -118,7 +118,7 @@
   {{pagination}}
 </div>
 
-<section class="container community-footer">
-  <h2 class="community-footer-title">{{t 'suggest_new_post'}}</h2>
+<section class="container community-footer my-5">
+  <h2 class="community-footer-title display-5 font-weight-light">{{t 'suggest_new_post'}}</h2>
   {{link 'new_post' class='button button-large'}}
 </section>

@@ -1,83 +1,602 @@
 <h1 class="visibility-hidden">{{ help_center.name }}</h1>
 
-<section id="main-content" class="section hero">
-  <div class="hero-inner">
-    <h2 class="visibility-hidden">{{ t 'search' }}</h2>
-    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" focusable="false" viewBox="0 0 12 12" class="search-icon" aria-hidden="true">
-      <circle cx="4.5" cy="4.5" r="4" fill="none" stroke="currentColor"/>
-      <path stroke="currentColor" stroke-linecap="round" d="M11 11L7.5 7.5"/>
-    </svg>
-    {{search submit=false instant=settings.instant_search class='search search-full'}}
-  </div>
+<section class="feature-banner jumbotron jumbotron-fluid kb bg">
+    <div class="container i-container">
+        <div class="effects-box">
+            <div class="illustration" style=""></div>
+            <div class="ovr overlay1"></div>
+            <div class="ovr overlay2"></div>
+            <div class="ovr overlay3"></div>
+            <div class="ovr b"></div>
+        </div>
+        <div class="row pb-5 mt-5 mb-5">
+            <div class="col-md-6 mb-5">
+                <div class="text-box text-white">
+                    <h4 class="mt-5">CloudBees Support</h4>
+                    <h1 class="white display-3 font-lato font-weight-light  mb-4">Welcome to <br>The Hive!</h1>
+                    <p class="white lead">This is your portal into the collective wisdom of CloudBees and Jenkins experts and users.</p>
+
+                    <div class="form-group" id="jumbotron-search">
+                        <div class="input-group">{{search placeholder='Search Knowledge Base' instant=true}}</div>
+                    </div>
+
+                     <div class="anonymous welcome teaser">
+                         
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
-<div class="container">
-  <section class="section knowledge-base">
-    <h2 class="visibility-hidden">{{ t 'categories' }}</h2>
-    <section class="categories blocks">
-      <ul class="blocks-list">
-        {{#each categories}}
-          {{#if ../has_multiple_categories}}
-            <li class="blocks-item">
-              <a href='{{url}}' class="blocks-item-link">
-                <span class="blocks-item-title">{{name}}</span>
-                <span class="blocks-item-description">{{excerpt description}}</span>
-              </a>
-            </li>
-          {{else}}
-            {{#each sections}}
-              <li class="blocks-item">
-                <a href='{{url}}' class="blocks-item-link">
-                  <span class="blocks-item-title">
-                    {{name}}
-                  </span>
-                  <span class="blocks-item-description">{{excerpt description}}</span>
-                </a>
-              </li>
-            {{/each}}
-          {{/if}}
-        {{/each}}
-      </ul>
-      {{pagination}}
-    </section>
+<section class="knowledge-base container">
+    <div class="row mt-2 mb-4">
+        <div class="col-md-12">
+            <h2 class="display-5 font-weight-light mt-3">Browse by Product</h2>
+        </div>
+    </div>
 
-    {{#if promoted_articles}}
-      <section class="articles">
-        <h2>{{t 'promoted_articles'}}</h2>
-        <ul class="article-list promoted-articles">
-          {{#each promoted_articles}}
-            <li class="promoted-articles-item">
-                <a href="{{url}}">
-                  {{title}}
-
-                  {{#if internal}}
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" focusable="false" viewBox="0 0 16 16" class="icon-lock" title="{{t 'internal'}}">
-                      <rect width="12" height="9" x="2" y="7" fill="currentColor" rx="1" ry="1"/>
-                      <path fill="none" stroke="currentColor" d="M4.5 7.5V4a3.5 3.5 0 017 0v3.5"/>
-                    </svg>
-                  {{/if}}
+    <div class="row">
+        <div class="col-md-7">
+            <div class="row">    
+                <div class="col-md-12">
+                    <h3 class="mt-3">Software Delivery Automation</h3>
+                </div>
+                {{#if settings.prd_cb_core_category_id}}
+                    <div class="col">
+                        <a href="{{page_path 'help_center'}}/categories/{{settings.prd_cb_core_category_id}}">
+                            <div class="card px-2 py-3 mt-3 mb-3 product-box">
+                                <div class="cloudbees">CloudBees</div>
+                                <div class="product-title">CI</div>
+                                <div class="product-former">(CloudBees Core)</div>
+                            </div>
+                        </a>
+                    </div>
+                {{/if}}
+                {{#if settings.prd_cb_flow_category_id}}
+                    <div class="col">
+                        <a href="{{page_path 'help_center'}}/categories/{{settings.prd_cb_flow_category_id}}">
+                            <div class="card px-2 py-3 mt-3 mb-3 product-box">
+                                <div class="cloudbees">CloudBees</div>
+                                <div class="product-title">CD</div>
+                                <div class="product-former">(CloudBees Flow)</div>
+                            </div>
+                        </a>
+                    </div>
+                {{/if}}
+                {{#if settings.prd_cb_accelerator_category_id}}
+                    <div class="col">
+                        <a href="{{page_path 'help_center'}}/categories/{{settings.prd_cb_accelerator_category_id}}">
+                            <div class="card px-2 py-3 mt-3 mb-3 product-box">
+                                <div class="cloudbees">CloudBees</div>
+                                <div class="product-title">Build Acceleration</div>
+                                <div class="product-former">(CloudBees Accelerator)</div>
+                            </div>
+                        </a>
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="mt-3">Software Delivery Managment</h3>
+                </div>
+                {{#if settings.prd_cb_rollout_category_id}}
+                    <div class="col">
+                        <a href="{{page_path 'help_center'}}/categories/{{settings.prd_cb_rollout_category_id}}">
+                            <div class="card px-2 py-3 mt-3 mb-3 product-box">
+                                <div class="cloudbees">CloudBees</div>
+                                <div class="product-title">Feature Flags</div>
+                                <div class="product-former">(CloudBees Rollout)</div>
+                            </div>
+                        </a>
+                    </div>
+                {{/if}}
+                {{#if settings.prd_cb_ee_category_id}}
+                    <div class="col">
+                        <a href="{{page_path 'help_center'}}/categories/{{settings.prd_cb_ee_category_id}}">
+                            <div class="card px-2 py-3 mt-3 mb-3 product-box">
+                                <div class="cloudbees">CloudBees</div>
+                                <div class="product-title">Engineering Efficiency</div>
+                            </div>
+                        </a>
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 mt-3">
+            <h3 class="mt-3">Traditional Products</h3>
+        </div>
+    </div>
+    <div class="row d-flex">
+        {{#if settings.prd_cb_cjp_category_id}}
+            <div class="col">
+                <a href="{{page_path 'help_center'}}/categories/{{settings.prd_cb_cjp_category_id}}">
+                    <div class="card px-2 py-3 mt-3 mb-3 product-box">
+                        <div class="cloudbees">CloudBees</div>
+                        <div class="product-title">Jenkins Platform</div>
+                    </div>
                 </a>
-            </li>
-          {{/each}}
-        </ul>
-      </section>
-    {{/if}}
+            </div>
+        {{/if}}
+        {{#if settings.prd_cb_cje_category_id}}
+            <div class="col">
+                <a href="{{page_path 'help_center'}}/categories/{{settings.prd_cb_cje_category_id}}">
+                    <div class="card px-2 py-3 mt-3 mb-3 product-box">
+                        <div class="cloudbees">CloudBees</div>
+                        <div class="product-title">Jenkins Enterprise</div>
+                    </div>
+                </a>
+            </div>
+        {{/if}}
+        {{#if settings.prd_cb_codeship_category_id}}
+            <div class="col">
+                <a href="{{page_path 'help_center'}}/categories/{{settings.prd_cb_codeship_category_id}}">
+                    <div class="card  px-2 py-3 mt-3 mb-3 product-box">
+                        <div class="cloudbees">CloudBees</div>
+                        <div class="product-title">CodeShip</div>
+                    </div>
+                </a>
+            </div>
+        {{else}}
+            {{#if settings.prd_cb_codeship_kb_site_link}}
+                <div class="col">
+                    <a href="{{settings.prd_cb_codeship_kb_site_link}}" target="_blank">
+                        <div class="card px-2 py-3 mt-3 mb-3 product-box">
+                            <div class="cloudbees">CloudBees</div>
+                            <div class="product-title">CodeShip</div>
+                        </div>
+                    </a>
+                </div>
+            {{/if}}
+        {{/if}}
+        {{#if settings.prd_cb_devoptics_category_id}}
+            <div class="col">
+                <a href="{{page_path 'help_center'}}/categories/{{settings.prd_cb_devoptics_category_id}}">
+                    <div class="card px-2 py-3 mt-3 mb-3 product-box">
+                        <div class="cloudbees">CloudBees</div>
+                        <div class="product-title">DevOptics</div>
+                    </div>
+                </a>
+            </div>
+        {{/if}}
+    </div>
+</section>
+
+<section class="container">
+    <div class="row mt-5 mb-4">
+        <div class="col-md-12"><h2 class="display-5 font-weight-light mt-5 mb-4">Browse by Resource</h2></div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 my-3">
+            <div class="">
+                 <div class="card align-items-stretch">
+                    <div class="card-img-top plugin-management-guide ">
+                        <div class="card-graphic-container"><span class="material-icons">assignment</span></div>
+                    </div>
+                    <div class="card-body d-flex flex-column px-4">
+                       <h4 class="card-title text-left">
+                            Product Documentation
+                        </h4>
+                        <p class="card-text flex-grow-1 text-left font-weight-light">
+                           Get the most descriptive, step-by-step documentation for all products.
+                        </p>
+                        <a href="https://docs.cloudbees.com/" class="card-cta pt-3 pb-2">
+                                See all documentation
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 my-3">
+            <div class="">
+                 <div class="card align-items-stretch">
+                    <div class="card-img-top plugin-management-guide">
+                        <div class="card-graphic-container"><span class="material-icons">
+emoji_people
+</span></div>
+                    </div>
+                    <div class="card-body d-flex flex-column px-4">
+                        <h4 class="card-title text-left ">
+                            Q&A Forum
+                        </h4>
+                        <p class="card-text flex-grow-1 text-left font-weight-light">
+                           Get all the solutions to your questions - answered by fellow users and experts.
+                        </p>
+                       
+                            <a href="/hc/en-us/community/topics" class="card-cta pt-3 pb-2">
+                                Get asking
+                            </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 my-3">
+            <div class="">
+                 <div class="card align-items-stretch">
+                    <div class="card-img-top plugin-management-guide">
+                        <div class="card-graphic-container"><span class="material-icons">
+ballot
+</span></div>
+                    </div>
+                    <div class="card-body d-flex flex-column px-4">
+                         <h4 class="card-title text-left ">
+                            Technical Tutorials
+                        </h4>
+                        <p class="card-text flex-grow-1 text-left font-weight-light">
+                           Deep-dive, use case driven tutorials about popular products and practices.
+                        </p>
+                        
+                            <a href="/" class="card-cta pt-3 pb-2">
+                                Read tutorials
+                            </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 my-3">
+            <div class="">
+                 <div class="card align-items-stretch">
+                    <div class="card-img-top plugin-management-guide ">
+                        <div class="card-graphic-container"><span class="material-icons">
+school
+</span></div>
+                    </div>
+                    <div class="card-body d-flex flex-column px-4">
+                        <h4 class="card-title text-left ">
+                            Training
+                        </h4>
+                        <p class="card-text flex-grow-1 text-left font-weight-light">
+                           Get hands on, guided training from CloudBees Experts in guided sessions.
+                        </p>
+                       
+                            <a href="https://premium.cbu.cloudbees.com/" class="card-cta pt-3 pb-2">
+                                See trainings
+                            </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 my-3">
+            <div class="">
+                 <div class="card align-items-stretch">
+                    <div class="card-img-top plugin-management-guide ">
+                        <div class="card-graphic-container"><span class="material-icons">
+room_service
+</span></div>
+                    </div>
+                    <div class="card-body d-flex flex-column px-4">
+                        <h4 class="card-title text-left">
+                            Professional Services
+                        </h4>
+                        <p class="card-text flex-grow-1 text-left font-weight-light">
+                           Need help implementing CloudBees products across your organization?
+                        </p>
+                        
+                            <a href="https://www.cloudbees.com/services" class="card-cta pt-3 pb-2">
+                                Schedule a request
+                            </a>
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 my-3">
+            <div class="">
+                 <div class="card align-items-stretch">
+                    <div class="card-img-top plugin-management-guide ">
+                        <div class="card-graphic-container"><span class="material-icons">
+how_to_reg
+</span></div>
+                    </div>
+                    <div class="card-body d-flex flex-column px-4">
+                        <h4 class="card-title text-left ">
+                            Certifications
+                        </h4>
+                        <p class="card-text flex-grow-1 text-left font-weight-light">
+                           Get certified in Jenkins or CloudBees products from the experts themselves.
+                        </p>
+                        
+                            <a href="https://www.cloudbees.com/jenkins/certification" class="card-cta pt-3 pb-2">
+                                Get certified
+                            </a>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 my-3">
+            <div class="">
+                 <div class="card align-items-stretch">
+                    <div class="card-img-top plugin-management-guide ">
+                        <div class="card-graphic-container"><span class="material-icons">
+network_check
+</span></div>
+                    </div>
+                    <div class="card-body d-flex flex-column px-4">
+                        <h4 class="card-title text-left">
+                            System Status
+                        </h4>
+                        <p class="card-text flex-grow-1 text-left font-weight-light">
+                           Check up on the status of CloudBees products, APIs, and other services.
+                        </p>
+                        
+                            <a href="https://cloudbeesstatus.com" class="card-cta pt-3 pb-2">
+                                See status
+                            </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row justify-content-center text-center mt-5 mb-2">
+            <h3 class="display-5 font-weight-light mt-4">Still Having Problems?</h3>
+        </div>
+        <div class="row justify-content-center px-5 mx-5 my-3 text-center">
+            <div class="col mb-5">
+                <a href="" class="btn btn-primary">Submit A Ticket</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div class="gradient-bg-blue-green py-5 my-3" >
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="col-md-12 py-5 mt-5 pr-5">
+                    <h2 class="display-4 mt-5 pb-2 text-white"><strong>Bee</strong> A Difference Maker.</h2>
+                    <p class="lead text-white">Join The Hive at CloudBees and get involved with the world's largest Enterprise DevOps community. You can share your knowledge in trainings, forums, or tutorials - or join our CAB and speak directly with company leaders.</p>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="container mt-5 mb-5">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="">
+                                <div class="card align-items-stretch mb-4">
+                                    <div class="card-img-top plugin-management-guide bg-success">
+                                        <div class="card-graphic-container"></div>
+                                    </div>
+                                    <div class="card-body d-flex flex-column px-4">
+                                        <h4 class="card-title text-left mt-3">
+                                            Product Feedback & Bugs
+                                        </h4>
+                                        <p class="card-text flex-grow-1 text-left">
+                                        Give direct feedback about bugs, product enhancements, or other details to our product and design teams.
+                                        </p>
+                                        
+                                        <div class="mb-3">
+                                            <a href="/docs/admin-resources/latest/plugin-management/" class="mt-4">
+                                                Submit feedback
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    
+                        <div class="col-md-6">
+                            <div class="">
+                                <div class="card align-items-stretch mb-4">
+                                    <div class="card-img-top plugin-management-guide bg-success">
+                                        <div class="card-graphic-container"></div>
+                                    </div>
+                                    <div class="card-body d-flex flex-column px-4">
+                                        <h4 class="card-title text-left mt-3">
+                                            CloudBees Labs
+                                        </h4>
+                                        <p class="card-text flex-grow-1 text-left">
+                                        CloudBees Labs is an Early Access Program for CloudBees practitioners and partners who want to push the limits of Jenkins and CI/CD.
+                                        </p>
+                                      
+                                        <div class="mb-3">
+                                            <a href="/docs/admin-resources/latest/plugin-management/" class="mt-4">
+                                                Join CloudBees Labs
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="">
+                                <div class="card align-items-stretch">
+                                    <div class="card-img-top plugin-management-guide bg-success">
+                                        <div class="card-graphic-container"></div>
+                                    </div>
+                                    <div class="card-body d-flex flex-column px-4">
+                                        <h4 class="card-title text-left mt-3">
+                                            Technical Writing Exchange
+                                        </h4>
+                                        <p class="card-text flex-grow-1 text-left">
+                                        The Technical Writing Exchange helps support our users who create content for the CloudBees and Jenkins community. 
+                                        </p>
+                                       
+                                        <div class="mb-3">
+                                            <a href="/docs/admin-resources/latest/plugin-management/" class="mt-4">
+                                                Get paid
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="col-md-6">
+                            <div class="">
+                                <div class="card align-items-stretch">
+                                    <div class="card-img-top plugin-management-guide bg-success">
+                                        <div class="card-graphic-container"></div>
+                                    </div>
+                                    <div class="card-body d-flex flex-column px-4">
+                                        <h4 class="card-title text-left mt-3">
+                                            Write Us A Review
+                                        </h4>
+                                        <p class="card-text flex-grow-1 text-left">
+                                        Want to let others know how much CloudBees rocks? Give us a review on G2, and help us share the CloudBees love.
+                                        </p>
+                                      
+                                        <div class="mb-3">
+                                            <a href="/docs/admin-resources/latest/plugin-management/" class="mt-4">
+                                                Give A Review
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+  <section class="section knowledge-base py-5 my-5">
+
+    <div class="container">
+      <div class="row">
+        <h2 class="visibility-hidden display-4">{{ t 'categories' }}</h2>
+        {{#if promoted_articles}}
+            <h2 class="display-4">{{t 'promoted_articles'}}</h2>
+            <ul class="article-list promoted-articles">
+              {{#each promoted_articles}}
+                <li class="promoted-articles-item">
+                    <a href="{{url}}">
+                      {{title}}
+
+                      {{#if internal}}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" focusable="false" viewBox="0 0 16 16" class="icon-lock" title="{{t 'internal'}}">
+                          <rect width="12" height="9" x="2" y="7" fill="currentColor" rx="1" ry="1"/>
+                          <path fill="none" stroke="currentColor" d="M4.5 7.5V4a3.5 3.5 0 017 0v3.5"/>
+                        </svg>
+                      {{/if}}
+                    </a>
+                </li>
+              {{/each}}
+            </ul>
+        {{/if}}
+      </div>
+    </div>
+    
   </section>
 
-  {{#if help_center.community_enabled}}
-    <section class="section home-section community">
-      <h2>{{t 'community'}}</h2>
-      {{#link 'community' class='community-link'}}
-        {{t 'join_conversation'}}
-      {{/link}}
 
-      <div class="community-image"></div>
-    </section>
-  {{/if}}
-
-  <section class="section home-section activity">
-    {{#if settings.show_recent_activity}}
+  <div class="section home-section activity">
+    <div class="container my-5">
+      <div class="row">
+         {{#if settings.show_recent_activity}}
       {{recent_activity}}
     {{/if}}
-  </section>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="conversion-bar text-white inverse-content gradient-bg-orange">
+    <div class="container mw-9">
+        <div class="row justify-content-between align-items-center px-5 px-lg-0 py-6">
+            <div class="col-12 col-md-6 col-lg-5 p-0">
+                <h3 class="display-4 display-md-3 mb-1 mb-lg-3 text-nowrap">Never miss a beat</h3>
+                <p class="mb-5 mb-md-0">Sign up to get notified about the latest product news, community posts, meetups, and more. You can opt out at any time, and we promise not to spam.</p>
+            </div>
+            <div class="col-12 col-md-6 col-lg-6 px-md-3 p-0 pt-md-4">
+                <section class="mw-5 px-4 px-xl-3">
+                    <div class="p-0">
+                        <div class="row">
+                            <div class="col p-0">
+                                <form class="" __bizdiag="0" __biza="W___">
+                                    <fieldset>
+                                        <div class="row">
+                                            <div class="col-12 col-lg-8">
+                                                <div class="form-group mb-3">
+                                                    <label for="email" class="sr-only">Email address</label>
+                                                    <input type="email" id="email" data-mkto-id="Email" class="form-control form-control-lg" required="" placeholder="Enter your email">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-lg-4">
+                                                <button class="btn btn-light btn-lg" type="submit">Sign up</button>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                        <form id="mktoForm_1036" class="d-none mktoForm mktoHasWidth mktoLayoutLeft" __bizdiag="196351684" __biza="W___" novalidate="novalidate" style="font-family: Helvetica, Arial, sans-serif; font-size: 13px; color: rgb(51, 51, 51); width: 101px;">
+                        
+                        <style type="text/css">.mktoForm .mktoButtonWrap.mktoSimple .mktoButton {
+                        color:#fff;
+                        border:1px solid #75ae4c;
+                        padding:0.4em 1em;
+                        font-size:1em;
+                        background-color:#99c47c;
+                        background-image: -webkit-gradient(linear, left top, left bottom, from(#99c47c), to(#75ae4c));
+                        background-image: -webkit-linear-gradient(top, #99c47c, #75ae4c);
+                        background-image: -moz-linear-gradient(top, #99c47c, #75ae4c);
+                        background-image: linear-gradient(to bottom, #99c47c, #75ae4c);
+                        }
+                        .mktoForm .mktoButtonWrap.mktoSimple .mktoButton:hover {
+                        border:1px solid #447f19;
+                        }
+                        .mktoForm .mktoButtonWrap.mktoSimple .mktoButton:focus {
+                        outline:none;
+                        border:1px solid #447f19;
+                        }
+                        .mktoForm .mktoButtonWrap.mktoSimple .mktoButton:active{
+                        background-color:#75ae4c;
+                        background-image: -webkit-gradient(linear, left top, left bottom, from(#75ae4c), to(#99c47c));
+                        background-image: -webkit-linear-gradient(top, #75ae4c, #99c47c);
+                        background-image: -moz-linear-gradient(top, #75ae4c, #99c47c);
+                        background-image: linear-gradient(to bottom, #75ae4c, #99c47c);
+                        }
+                        </style>
+
+
+                        <div class="mktoFormRow">
+                            <div class="mktoFieldDescriptor mktoFormCol" style="margin-bottom: 10px;">
+                                <div class="mktoOffset" style="width: 10px;"></div>
+                                <div class="mktoFieldWrap mktoRequiredField">
+                                    <label for="Email" id="LblEmail" class="mktoLabel mktoHasWidth" style="width: 100px;">
+                                    <div class="mktoAsterix">*</div>
+                                    Email Address:</label>
+                                    <div class="mktoGutter mktoHasWidth" style="width: 10px;"></div>
+                                    <input id="Email" name="Email" maxlength="255" aria-describedby="ValidMsgEmail" aria-labelledby="LblEmail InstructEmail" type="email" class="mktoField mktoEmailField mktoHasWidth mktoRequired" aria-required="true" style="width: 150px;">
+                                    <span id="InstructEmail" tabindex="-1" class="mktoInstruction"></span>
+                                    <div class="mktoClear"></div>
+                                </div>
+                                <div class="mktoClear"></div>
+                            </div>
+                            <div class=">mktoClear"></div>
+                        </div>
+                        <div class="mktoButtonRow">
+                            <span class="mktoButtonWrap mktoSimple" style="margin-left: 120px;">
+                                <button type="submit" class="mktoButton">Submit</button>
+                            </span>
+                        </div>
+                        <input type="hidden" name="formid" class="mktoField mktoFieldDescriptor" value="1036">
+                        <input type="hidden" name="munchkinId" class="mktoField mktoFieldDescriptor" value="333-QPV-725">
+                    </form>
+                </div>
+            <div class="mw-4 border rounded shadow d-none" id="tooltip" style="position: absolute; inset: auto auto 0px 0px; transform: translate3d(1097.5px, 3186.5px, 0px);" data-popper-reference-hidden="false" data-popper-escaped="false" data-popper-placement="top"><strong>Your ad blocker may be blocking functionality on this page. Please disable for an improved experience.</strong>
+                <div id="arrow" style="position: absolute; left: 0px; transform: translate3d(0px, 0px, 0px);">
+
+                </div>
+            </div>
+        </section>
+    </div>
 </div>

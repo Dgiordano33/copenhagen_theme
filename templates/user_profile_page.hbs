@@ -1,4 +1,4 @@
-<header id="main-content" class="profile-header">
+<header id="main-content" class="profile-header gradient-bg-blue-green text-white">
   <div class="container">
     <div class="profile-info">
       <div class="avatar profile-avatar">
@@ -10,9 +10,9 @@
         <img class="user-avatar" src="{{user.avatar_url}}" alt=""/>
       </div>
       <div class="basic-info">
-        <h1 class="name">
+        <h1 class="name display-5 font-weight-light">
           {{#if user.url}}
-            <a href="{{user.url}}" target="_zendesk_lotus" title="{{t 'open_user_in_support'}}">{{user.name}}</a>
+            <a href="{{user.url}}" class="text-white" target="_zendesk_lotus" title="{{t 'open_user_in_support'}}">{{user.name}}</a>
           {{else}}
             {{user.name}}
           {{/if}}
@@ -38,22 +38,9 @@
             {{/is}}
           {{/each}}
         </div>
+        
       </div>
-      <div class="options">
-        {{#if private_profile}}
-          <span class="profile-private-badge">
-            {{t 'private'}}
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" focusable="false" viewBox="0 0 12 12" class="profile-private-icon">
-              <path fill="none" stroke="currentColor" d="M3.5 5.5V3a2.5 2.5 0 015 0v2.5"/>
-              <rect width="10" height="7" x="1" y="5" fill="currentColor" rx="1" ry="1"/>
-            </svg>
-          </span>
-        {{/if}}
-        {{actions class='user-profile-actions split-button'}}
-        <div class="community-follow">
-          {{subscribe}}
-        </div>
-      </div>
+      
 
       {{#if description}}
         <p class="description">{{description}}</p>
@@ -61,12 +48,12 @@
 
       <ul class="profile-stats profile-stats-activity">
         <li class="stat">
-          <span class="stat-label">{{t 'total_activity'}}</span>
-          <span class="stat-value">{{total_activity}}</span>
+          <span class="stat-label text-white">{{t 'total_activity'}}</span>
+          <span class="stat-value text-white">{{total_activity}}</span>
         </li>
         <li class="stat">
-          <span class="stat-label">{{t 'last_activity'}}</span>
-          <span class="stat-value">
+          <span class="stat-label text-white">{{t 'last_activity'}}</span>
+          <span class="stat-value text-white">
             {{#if last_activity_at}}
               {{date last_activity_at timeago=true}}
             {{else}}
@@ -75,8 +62,8 @@
           </span>
         </li>
         <li class="stat">
-          <span class="stat-label">{{t 'member_since'}}</span>
-          <span class="stat-value">
+          <span class="stat-label text-white">{{t 'member_since'}}</span>
+          <span class="stat-value text-white">
             {{#if member_since}}
               {{date member_since format='medium'}}
             {{else}}
@@ -84,26 +71,34 @@
             {{/if}}
           </span>
         </li>
+        <div class="options">
+        
+        {{actions class='user-profile-actions split-button light-btn'}}
+        <div class="community-follow">
+          {{subscribe}}
+        </div>
+      </div>
       </ul>
     </div>
     <ul class="profile-stats profile-stats-counters">
       <li class="stat">
-        <span class="stat-label">{{t 'following_users'}}</span>
+        <span class="stat-label  text-white">{{t 'following_users'}}</span>
         <span class="stat-value">{{t 'users_count' count=following_count}}</span>
       </li>
       <li class="stat">
-        <span class="stat-label">{{t 'followed_by'}}</span>
+        <span class="stat-label text-white">{{t 'followed_by'}}</span>
         <span class="stat-value">{{t 'users_count' count=follower_count}}</span>
       </li>
       <li class="stat">
-        <span class="stat-label">{{t 'votes'}}</span>
+        <span class="stat-label text-white">{{t 'votes'}}</span>
         <span class="stat-value">{{vote_count}}</span>
       </li>
       <li class="stat">
-        <span class="stat-label">{{t 'subscriptions'}}</span>
+        <span class="stat-label text-white">{{t 'subscriptions'}}</span>
         <span class="stat-value">{{subscription_count}}</span>
       </li>
     </ul>
+
   </div>
 </header>
 

@@ -16,7 +16,7 @@
       <article id="main-content">
         <header class="post-header">
           <div class="post-title">
-            <h1 title="{{post.title}}">
+            <h1 class="display-5 font-weight-light" title="{{post.title}}">
               {{post.title}}
               {{#if post.internal}}
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" focusable="false" viewBox="0 0 16 16" class="icon-lock" title="{{t 'internal'}}">
@@ -57,7 +57,7 @@
                 <img src="{{post.author.avatar_url}}" alt="" class="user-avatar"/>
               </div>
               <div class="post-meta">
-                <span title="{{post.author.name}}">
+                <span class="mt-2" title="{{post.author.name}}">
                   {{#link 'user_profile' id=post.author.id}}
                     {{post.author.name}}
                   {{/link}}
@@ -72,7 +72,7 @@
                     {{/is}}
                   {{/each}}
                 </span>
-                <ul class="meta-group meta-group-opposite">
+                <ul class="meta-group">
                   {{#if post.editor}}
                     <li class="meta-data">{{date post.edited_at timeago=true}}</li>
                     <li class="meta-data">{{t 'edited'}}</li>
