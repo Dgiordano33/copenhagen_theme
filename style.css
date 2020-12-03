@@ -4986,3 +4986,7 @@ section.articles {
 .dropdown-toggle:after{
   display: none !important;
 }
+
+.display-6{
+  font-size:2rem;
+}

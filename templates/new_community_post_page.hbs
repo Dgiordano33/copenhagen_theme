@@ -11,11 +11,13 @@
     </div>
   </nav>
 
-  <h1 class="form-header">
+  <h1 class="form-header display-5 font-weight-light">
     {{t 'what_is_your_post_about'}}
   </h1>
-
-  <div id="main-content" class="form">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <div id="main-content" class="form">
     {{#form 'post' class='new_community_post'}}
       <div class="form-field">
         {{#required 'title'}}
@@ -29,6 +31,22 @@
         {{#validate 'title'}}
           <div class="notification notification-error notification-inline">
             {{error 'title'}}
+          </div>
+        {{/validate}}
+      </div>
+
+      <div class="form-field">
+        {{#required 'topic'}}
+          {{label 'topic'}}
+        {{else}}
+          {{#label 'topic'}}
+            {{t 'topic_label'}}<span class="optional">({{t 'optional'}})</span>
+          {{/label}}
+        {{/required}}
+        {{select 'topic'}}
+        {{#validate 'topic'}}
+          <div class="notification notification-error notification-inline">
+            {{error 'topic'}}
           </div>
         {{/validate}}
       </div>
@@ -50,24 +68,25 @@
           </div>
         {{/validate}}
       </div>
-
-      <div class="form-field">
-        {{#required 'topic'}}
-          {{label 'topic'}}
-        {{else}}
-          {{#label 'topic'}}
-            {{t 'topic_label'}}<span class="optional">({{t 'optional'}})</span>
-          {{/label}}
-        {{/required}}
-        {{select 'topic'}}
-        {{#validate 'topic'}}
-          <div class="notification notification-error notification-inline">
-            {{error 'topic'}}
-          </div>
-        {{/validate}}
-      </div>
-
       <footer>{{input type='submit'}}</footer>
     {{/form}}
   </div>
+      </div>
+      <div class="col-md-5">
+        <div class="px-5 py-5 mt-5 mr-5 gradient-bg-blue-green text-white ">
+          <h3>A Reminder Before You Post:</h3>
+          <p>
+            <ul>
+              <li>Search for your question posted by another user first</li>
+              <li></li>
+              <li>Be detailed when asking your question - please include system information, software versions, etc.</li>
+            </ul>
+          </p>
+        </div>
+          
+      </div>
+    </div>
+  </div>
+
+  
 </div>
